@@ -3,7 +3,7 @@ name: "Terraform-Plan-Infra-XPERTS"
 on:
   push:
     branches:
-      - FeatureBranch1
+      - Main
 
 jobs:
   terraform:
