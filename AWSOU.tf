@@ -3,7 +3,7 @@ data "aws_organizations_organization" "xperts" {}
 
 # STUDENTS - OU
 resource "aws_organizations_organizational_unit" "XPERTS-students" {
-  name      = "STUDENTS"
+  name      = "XPERTS-STUDENTS"
   parent_id = data.aws_organizations_organization.xperts.roots.0.id
 }
 
