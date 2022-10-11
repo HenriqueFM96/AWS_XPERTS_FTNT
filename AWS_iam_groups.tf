@@ -22,6 +22,31 @@ resource "aws_iam_group_policy_attachment" "stdts-ec2-policies" {
   policy_arn = aws_iam_policy.ec2_stdt.arn
 }
 
+resource "aws_iam_group_policy_attachment" "stdts-ecr-policies" {
+  group      = aws_iam_group.stdts_all.name
+  policy_arn = aws_iam_policy.ecr_stdt.arn
+}
+
+resource "aws_iam_group_policy_attachment" "stdts-eks-policies" {
+  group      = aws_iam_group.stdts_all.name
+  policy_arn = aws_iam_policy.eks_stdt.arn
+}
+
+resource "aws_iam_group_policy_attachment" "stdts-marketplace-policies" {
+  group      = aws_iam_group.stdts_all.name
+  policy_arn = aws_iam_policy.marketplace_stdt.arn
+}
+
+resource "aws_iam_group_policy_attachment" "stdts-route53-policies" {
+  group      = aws_iam_group.stdts_all.name
+  policy_arn = aws_iam_policy.route53_stdt.arn
+}
+
+resource "aws_iam_group_policy_attachment" "stdts-s3-policies" {
+  group      = aws_iam_group.stdts_all.name
+  policy_arn = aws_iam_policy.s3_stdt.arn
+}
+
 ## Setting up the admin group account with desired permissions
 resource "aws_iam_group" "xperts-admins" {
   name = "xperts-admins"
