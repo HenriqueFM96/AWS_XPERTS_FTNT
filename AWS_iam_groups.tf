@@ -4,8 +4,8 @@ resource "aws_iam_group" "stdts_all" {
   name = "stdts_all"
 }
 
-resource "aws_iam_user_group_membership" "example2" {
-  user = aws_iam_user.stdt001
+resource "aws_iam_user_group_membership" "stdt-membership" {
+  user = aws_iam_user.stdt001.name
 
   groups = [
     aws_iam_group.stdts_all.name,
