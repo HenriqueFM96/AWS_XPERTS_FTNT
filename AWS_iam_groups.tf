@@ -6,7 +6,7 @@ resource "aws_iam_group" "stdts_all" {
 
 # Define users to be part of group name stdts_all 
 resource "aws_iam_user_group_membership" "stdt-membership" {
-  user = [
+  users = [
     aws_iam_user.stdt001.name,
     aws_iam_user.stdt002.name,
     aws_iam_user.stdt003.name
