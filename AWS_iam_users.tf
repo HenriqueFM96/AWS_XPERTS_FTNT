@@ -7,6 +7,10 @@ resource "aws_iam_user_login_profile" "stdt001-profile" {
     pgp_key = "keybase:stdt001"
 }
 
+output "password" {
+  value = aws_iam_user_login_profile.stdt001-profile.encrypted_password
+}
+
 resource "aws_iam_user" "stdt002" {
   name = "stdt002"
 }
