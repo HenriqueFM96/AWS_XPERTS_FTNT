@@ -15,11 +15,13 @@ resource "aws_organizations_account" "account" {
   role_name = "OrganizationAccountAccessRole"
 }
 
+/*
 resource "aws_organizations_account" "account" {
   name      = "stdt02"
   email     = "student1@fortixperts.com"
   parent_id = "ou-ebvx-vyvxwl6k"
   role_name = "OrganizationAccountAccessRole"
 }
+*/
 
 #student1@fortixperts.com - student160@fortixperts.com
