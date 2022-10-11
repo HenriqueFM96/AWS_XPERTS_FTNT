@@ -14,7 +14,7 @@ resource "aws_iam_user_group_membership" "stdt-membership" {
 
 resource "aws_iam_group_policy_attachment" "stdts-policies" {
   group      = aws_iam_group.stdts_all.name
-  policy_arn = "aws:iam::024680062370:policy/cft_stdt"
+  policy_arn = aws_iam_policy.cft_stdt.arn
 }
 
 ## Setting up the admin group account with desired permissions
