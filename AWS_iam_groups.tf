@@ -12,12 +12,14 @@ resource "aws_iam_user_group_membership" "stdt-membership" {
   ]
 }
 
-resource "aws_iam_group_policy_attachment" "stdts-policies" {
+resource "aws_iam_group_policy_attachment" "stdts-cft-policies" {
   group      = aws_iam_group.stdts_all.name
-  policy_arn = [
-    aws_iam_policy.cft_stdt.arn,
-    aws_iam_policy.ec2_stdt.arn,
-  ]
+  policy_arn = aws_iam_policy.cft_stdt.arn
+}
+
+resource "aws_iam_group_policy_attachment" "stdts-ec2-policies" {
+  group      = aws_iam_group.stdts_all.name
+  policy_arn = aws_iam_policy.ec2_stdt.arn
 }
 
 ## Setting up the admin group account with desired permissions
