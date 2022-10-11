@@ -1,7 +1,9 @@
 output "users" {
-  value = ["${aws_iam_user.stdts-accounts.*.name}"]
+    value = ["${aws_iam_user.stdts-accounts.*.name}"]
 }
 
 output "passwords" {
-  value = ["${aws_iam_user_login_profile.stdts_login.*.password}"]
+    #remove sensitive to allow password copy and paste
+    sensitive = true
+    value = ["${aws_iam_user_login_profile.stdts_login.*.password}"]
 }

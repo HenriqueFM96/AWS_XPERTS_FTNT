@@ -7,12 +7,8 @@ resource "aws_iam_group" "stdts_all" {
 # Define users to be part of group name stdts_all 
 resource "aws_iam_group_membership" "stdts_membership" {
   name = "tf-stdts-group-membership"
-
-  users = [
-    aws_iam_user.stdt001.name,
-    aws_iam_user.stdt002.name,
-    aws_iam_user.stdt003.name
-  ]
+  count = 5
+  user = "aws_iam_user.stdt${count.index}"
 
   group = aws_iam_group.stdts_all.name
 }
