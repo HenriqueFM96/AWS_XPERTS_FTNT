@@ -1,8 +1,8 @@
 output "users" {
-  value = aws_iam_user.stdts-accounts[count.index]
+  value = ["${aws_iam_user.stdts-accounts.name}"]
 }
 
 output "passwords" {
   sensitive = true
-  value = aws_iam_user_login_profile.stdts_login[count.index]
+  value = ["${aws_iam_user_login_profile.stdts_login.password}"]
 }
