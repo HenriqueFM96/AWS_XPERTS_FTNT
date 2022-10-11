@@ -16,7 +16,8 @@ resource "aws_iam_user" "stdts-accounts" {
 }
 
 resource "aws_iam_user_login_profile" "stdts_login" {
-user = "stdt001"
-pgp_key = "keybase:stdt001"
-password_length = 10 
+  user = "stdt001"
+  password = "P@ssw0rd#FTNT22"
+  password_length = 10 
+  password_reset_required = Yes
 }
