@@ -1,10 +1,9 @@
 #AWS Account creation
-
 resource "aws_organizations_account" "UsersAccount" {
   count = 3
   name      = "newStudent${count.index}"
   email     = "hfm${count.index}@123.com.br"
-  parent_id = "ou-ebvx-vyvxwl6k"
+  parent_id = aws_organizations_organizational_unit.XPERTS-students.id
   role_name = "OrganizationAccountAccessRole"
 }
 
