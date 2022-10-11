@@ -4,6 +4,14 @@ resource "aws_iam_group" "stdts_all" {
   name = "stdts_all"
 }
 
+resource "aws_iam_user_group_membership" "example2" {
+  user = aws_iam_user.stdt001
+
+  groups = [
+    aws_iam_group.stdts_all.name,
+  ]
+}
+
 resource "aws_iam_group_policy_attachment" "stdts-policies" {
   group      = aws_iam_group.stdts_all.name
   policy_arn = "aws:iam::024680062370:policy/cft_stdt"
