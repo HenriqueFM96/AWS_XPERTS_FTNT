@@ -19,5 +19,5 @@ resource "aws_iam_user_login_profile" "stdts_login" {
   user = "stdt001"
   password = "P@ssw0rd#FTNT22"
   password_length = 10 
-  password_reset_required = 1
+  password_reset_required = true
 }
