@@ -5,16 +5,16 @@ resource "aws_iam_group" "stdts_all" {
 }
 
 # Define users to be part of group name stdts_all 
-resource "aws_iam_user_group_membership" "stdt-membership" {
+resource "aws_iam_group_membership" "stdts_membership" {
+  name = "tf-stdts-group-membership"
+
   users = [
     aws_iam_user.stdt001.name,
     aws_iam_user.stdt002.name,
     aws_iam_user.stdt003.name
   ]
 
-  groups = [
-    aws_iam_group.stdts_all.name,
-  ]
+  group = aws_iam_group.stdts_all.name
 }
 
 # Define CFT policy to be attached on group stdts_all
