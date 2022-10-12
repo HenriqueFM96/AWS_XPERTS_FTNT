@@ -9,10 +9,15 @@ resource "aws_iam_group_membership" "stdts_membership" {
   name = "tf-stdts-group-membership"
   count = 5
   users = [
-    "aws_iam_user.stdt${count.index}.name",
+    "aws_iam_user.stdts-accounts.stdt${count.index}.name",
     ]
   
   group = aws_iam_group.stdts_all.name
+}
+
+resource "aws_iam_user" "stdts-accounts" {
+  count = 5
+  name = "stdt${count.index}"
 }
 
 # Define CFT policy to be attached on group stdts_all
