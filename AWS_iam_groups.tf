@@ -15,11 +15,6 @@ resource "aws_iam_group_membership" "stdts_membership" {
   group = aws_iam_group.stdts_all.name
 }
 
-resource "aws_iam_user" "stdts-accounts" {
-  count = 5
-  name = "stdt${count.index}"
-}
-
 # Define CFT policy to be attached on group stdts_all
 resource "aws_iam_group_policy_attachment" "stdts-cft-policies" {
   group      = aws_iam_group.stdts_all.name
