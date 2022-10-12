@@ -8,8 +8,10 @@ resource "aws_iam_group" "stdts_all" {
 resource "aws_iam_group_membership" "stdts_membership" {
   name = "tf-stdts-group-membership"
   count = 5
-  users = ["aws_iam_user.stdt${count.index}.name",]
-
+  users = [
+    "aws_iam_user.stdt${count.index}.name",
+    ]
+  
   group = aws_iam_group.stdts_all.name
 }
 
